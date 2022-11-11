@@ -43,9 +43,11 @@ export const signIn = async (email, password, navigate) => {
     alert(error.message);
   }
 };
-export const userObserver = () => {
+export const userObserver = (setCurrentUser) => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
+      const { email, displayName, photoURL } = user;
+      setCurrentUser({ email, displayName, photoURL });
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       console.log(user);
