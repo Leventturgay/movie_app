@@ -4,6 +4,7 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -59,6 +60,7 @@ export const userObserver = (setCurrentUser) => {
       console.log(user);
       // ...
     } else {
+      setCurrentUser(false);
       console.log("user sign out");
       // User is signed out
       // ...
@@ -79,5 +81,19 @@ export const signUpWithGoogle = (navigate) => {
     .catch((error) => {
       console.log(error);
       // ...
+    });
+};
+export const forgotPassword = (email) => {
+  //? Email yoluyla şifre sıfırlama için kullanılan firebase metodu
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      // Password reset email sent!
+      // toastWarnNotify("Please check your mail box!");
+      // alert("Please check your mail box!");
+    })
+    .catch((err) => {
+      // toastErrorNotify(err.message);
+      // alert(err.message);
+      // ..
     });
 };
