@@ -96,11 +96,11 @@ export const forgotPassword = (email) => {
   sendPasswordResetEmail(auth, email)
     .then(() => {
       // Password reset email sent!
-      // toastWarnNotify("Please check your mail box!");
+      toastWarnNotify("Please check your mail box!");
       // alert("Please check your mail box!");
     })
     .catch((err) => {
-      // toastErrorNotify(err.message);
+      toastErrorNotify(err.message);
       // alert(err.message);
       // ..
     });
