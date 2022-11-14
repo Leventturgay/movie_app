@@ -40,6 +40,7 @@
   background: #fff;
   text-align: center;
   box-shadow: 0 100px 100px rgb(0 0 0 /10%);
+  height: 110vh;
 }
 .card::before {
   content: "";
